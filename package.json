@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "t": "jest",
+    "test": "jest --runInBand",
     "build": "tsc"
   },
   "keywords": [],
