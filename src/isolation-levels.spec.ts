@@ -113,10 +113,6 @@ describe('ISOLATION LEVELS', () => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
 
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1001);
-                });
-
                 await t.bank.create({
                   data: {
                         owner: 'sum',
@@ -130,10 +126,6 @@ describe('ISOLATION LEVELS', () => {
             const t2 = prisma2.$transaction(async (t) => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
-
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1000);
-                });
 
                 await t.bank.create({
                     data: {
@@ -252,9 +244,6 @@ describe('ISOLATION LEVELS', () => {
             const t1 = prisma.$transaction(async (t) => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1001);
-                });
 
                 await t.bank.create({
                     data: {
@@ -269,10 +258,6 @@ describe('ISOLATION LEVELS', () => {
             const t2 = prisma2.$transaction(async (t) => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
-
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1000);
-                });
 
                 await t.bank.create({
                     data: {
@@ -391,9 +376,6 @@ describe('ISOLATION LEVELS', () => {
             const t1 = prisma.$transaction(async (t) => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1001);
-                });
 
                 await t.bank.create({
                     data: {
@@ -408,10 +390,6 @@ describe('ISOLATION LEVELS', () => {
             const t2 = prisma2.$transaction(async (t) => {
                 const result: { sum: BigInt }[] = await t.$queryRaw`SELECT SUM(balance) as sum FROM banks`;
                 expect(Number(result[0].sum)).toBe(600)
-
-                await new Promise((resolve) => {
-                    setTimeout(resolve, 1000);
-                });
 
                 await t.bank.create({
                     data: {
